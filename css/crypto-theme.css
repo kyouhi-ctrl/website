@@ -1,0 +1,386 @@
+/*
+未命名星球主题样式
+基于 WebStack 主题定制
+*/
+
+/* 币圈主题色彩变量 */
+:root {
+    --crypto-primary: #f7931a;
+    --crypto-secondary: #ff6b35;
+    --crypto-accent: #ffd700;
+    --crypto-success: #00d4aa;
+    --crypto-danger: #ff4757;
+    --crypto-dark: #2c3e50;
+    --crypto-light: #ecf0f1;
+}
+
+/* 币圈主题头部样式 */
+.crypto-header {
+    background: linear-gradient(135deg, var(--crypto-primary) 0%, var(--crypto-secondary) 100%);
+    color: white;
+    padding: 3rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.crypto-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+    animation: float 20s infinite linear;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-100px); }
+}
+
+.crypto-header h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.crypto-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    position: relative;
+    z-index: 1;
+}
+
+/* 币圈徽章样式 */
+.crypto-badge {
+    background: linear-gradient(45deg, var(--crypto-primary), var(--crypto-secondary));
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-left: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* 交易所高亮样式 */
+.exchange-highlight {
+    background: linear-gradient(135deg, var(--crypto-secondary) 0%, var(--crypto-primary) 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(247, 147, 26, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.exchange-highlight::before {
+    content: '💰';
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(-50%); }
+    40% { transform: translateY(-60%); }
+    60% { transform: translateY(-40%); }
+}
+
+/* 币圈数据统计样式 */
+.crypto-stats {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    border: 1px solid rgba(247, 147, 26, 0.1);
+}
+
+.crypto-stats h3 {
+    color: var(--crypto-primary);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.stat-item {
+    background: white;
+    padding: 1.5rem 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 4px solid var(--crypto-primary);
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--crypto-primary);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 500;
+}
+
+/* 币圈卡片特殊样式 */
+.crypto-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(247, 147, 26, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.crypto-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--crypto-primary), var(--crypto-secondary));
+}
+
+.crypto-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* 币圈图标样式 */
+.crypto-icon {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--crypto-primary), var(--crypto-secondary));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(247, 147, 26, 0.3);
+}
+
+/* 币圈链接特殊效果 */
+.crypto-link {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 10px;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.crypto-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(247, 147, 26, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.crypto-link:hover::before {
+    left: 100%;
+}
+
+.crypto-link:hover {
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+    border-left-color: var(--crypto-primary);
+    transform: translateX(8px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* 币圈搜索框样式 */
+.crypto-search {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    text-align: center;
+    border: 1px solid rgba(247, 147, 26, 0.1);
+}
+
+.crypto-search-box {
+    width: 100%;
+    max-width: 600px;
+    padding: 1.2rem 1.5rem;
+    border: 2px solid #e9ecef;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    outline: none;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+}
+
+.crypto-search-box:focus {
+    border-color: var(--crypto-primary);
+    box-shadow: 0 0 0 3px rgba(247, 147, 26, 0.1);
+    background: white;
+}
+
+/* 币圈导航样式 */
+.crypto-nav {
+    background: white;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    padding: 1.5rem 0;
+    margin-bottom: 2rem;
+    border-bottom: 3px solid var(--crypto-primary);
+}
+
+.crypto-nav-logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--crypto-primary);
+    text-decoration: none;
+    background: linear-gradient(135deg, var(--crypto-primary), var(--crypto-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.crypto-nav-links a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.crypto-nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--crypto-primary);
+    transition: width 0.3s ease;
+}
+
+.crypto-nav-links a:hover::after {
+    width: 100%;
+}
+
+.crypto-nav-links a:hover {
+    color: var(--crypto-primary);
+}
+
+/* 币圈页脚样式 */
+.crypto-footer {
+    background: linear-gradient(135deg, var(--crypto-dark) 0%, #34495e 100%);
+    color: white;
+    text-align: center;
+    padding: 3rem 0;
+    margin-top: 4rem;
+    position: relative;
+}
+
+.crypto-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--crypto-primary), var(--crypto-secondary));
+}
+
+.crypto-footer p {
+    margin-bottom: 0.5rem;
+}
+
+.crypto-footer strong {
+    color: var(--crypto-primary);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .crypto-header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .stat-item {
+        padding: 1rem 0.8rem;
+    }
+    
+    .stat-value {
+        font-size: 1.4rem;
+    }
+    
+    .crypto-badge {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.6rem;
+    }
+    
+    .exchange-highlight {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .crypto-header {
+        padding: 2rem 0;
+    }
+    
+    .crypto-header h1 {
+        font-size: 1.8rem;
+    }
+}
+
